@@ -1,2 +1,17 @@
-node_modules
-GUIDE
+# ─── 根项目构建产物 ───────────────────────────────────────────
+node_modules/
+out/
+dist/
+
+# ─── 编辑器 / 系统产物 ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── GUIDE 快照：追踪源码，忽略各快照的本地产物 ──────────────
+# 每个 GUIDE/dayN/ 是独立的 npm 项目，忽略其安装产物和构建输出
+GUIDE/*/node_modules/
+GUIDE/*/out/
+GUIDE/*/dist/
+GUIDE/*/.vscode/
+
+# AGENT_MEMORY/ 不忽略——需要追踪到远程仓库以支持跨机器恢复

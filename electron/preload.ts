@@ -1,7 +1,9 @@
-import { contextBridge } from "electron";
+import { contextBridge, ipcRenderer } from "electron";
 import { electronAPI } from "@electron-toolkit/preload";
 
-const api = {}
+const api = {
+    runCommand: async (command: string) => ipcRenderer.invoke('terminal:run-command', command)
+}
 
 if (process.contextIsolated) {
     try {
