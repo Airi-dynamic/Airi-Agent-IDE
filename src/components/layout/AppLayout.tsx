@@ -3,6 +3,8 @@ import Sidebar from "./Sidebar";
 import StatusBar from "./StatusBar";
 import { FileCode, MessageSquare, TerminalSquare } from "lucide-react";
 import { useEditorStore } from "../../stores/editor.store";
+import MonacoWrapper from "../editor/MonacoWrapper";
+import TerminalInstance from "../terminal/TerminalInstance";
 
 export default function AppLayout() {
   const isSidebarOpen = useEditorStore((state) => state.isSidebarOpen);
@@ -37,15 +39,10 @@ export default function AppLayout() {
           <Panel defaultSize={80}>
             <PanelGroup direction="vertical">
               <Panel defaultSize={70}>
-                <div className="h-full flex items-center justify-center bg-background border-b border-border">
-                  <p className="text-gray-500 italic">
-                    Monaco 编辑器将会被放置在此处
-                  </p>
+                <div className="h-full border-b border-border">
+                  <MonacoWrapper />
                 </div>
               </Panel>
-              {/* <div className="flex-1 flex items-center justify-center">
-                <p className="text-gray-500 italic">终端面板将会被放置在此处</p>
-              </div> */}
               {/* 工作区分割线 */}
               <PanelResizeHandle className="h-1 bg-border hover:bg-blue-500 transition-colors" />
               {/* 下方工作区 */}
@@ -60,10 +57,8 @@ export default function AppLayout() {
                     </span>
                   </div>
                   {/* 终端面板内容 */}
-                  <div className="flex-1 flex items-center justify-center">
-                    <p className="text-gray-500 italic">
-                      终端面板将会被放置在此处
-                    </p>
+                  <div className="flex-1 overflow-hidden">
+                    <TerminalInstance />
                   </div>
                 </div>
               </Panel>
