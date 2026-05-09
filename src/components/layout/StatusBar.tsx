@@ -14,5 +14,5 @@ export default function StatusBar() {
       <span className="mx-4 opacity-50">|</span>
       <span>Editor & Terminal Integrated</span>
     </div>
-  );
+  )
 }

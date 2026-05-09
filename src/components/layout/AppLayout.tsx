@@ -1,13 +1,13 @@
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import Sidebar from "./Sidebar";
-import StatusBar from "./StatusBar";
-import { FileCode, MessageSquare, TerminalSquare } from "lucide-react";
-import { useEditorStore } from "../../stores/editor.store";
-import MonacoWrapper from "../editor/MonacoWrapper";
-import TerminalInstance from "../terminal/TerminalInstance";
+import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
+import Sidebar from './Sidebar'
+import StatusBar from './StatusBar'
+import { FileCode, MessageSquare, TerminalSquare } from 'lucide-react'
+import { useEditorStore } from '../../stores/editor.store'
+import MonacoWrapper from '../editor/MonacoWrapper'
+import TerminalInstance from '../terminal/TerminalInstance'
 
 export default function AppLayout() {
-  const isSidebarOpen = useEditorStore((state) => state.isSidebarOpen);
+  const isSidebarOpen = useEditorStore((state) => state.isSidebarOpen)
 
   return (
     // 根布局，是一个单一元素，使用 Flexbox 垂直排列子元素，并占满整个屏幕高度。
@@ -52,9 +52,7 @@ export default function AppLayout() {
                   {/* 选项栏 */}
                   <div className="h-8 border-b border-border flex items-center px-4">
                     <TerminalSquare size={14} className="mr-2" />
-                    <span className="text-xs uppercase font-semibold">
-                      Terminal
-                    </span>
+                    <span className="text-xs uppercase font-semibold">Terminal</span>
                   </div>
                   {/* 终端面板内容 */}
                   <div className="flex-1 overflow-hidden">
@@ -69,5 +67,5 @@ export default function AppLayout() {
       {/* 根布局所含的两个元素之一：状态栏（最底部一小块区域） */}
       <StatusBar />
     </div>
-  );
+  )
 }

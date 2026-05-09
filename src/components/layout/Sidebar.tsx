@@ -1,8 +1,8 @@
-import { useEditorStore } from "../../stores/editor.store";
-import { FolderTree, X } from "lucide-react";
+import { useEditorStore } from '../../stores/editor.store'
+import { FolderTree, X } from 'lucide-react'
 
 export default function Sidebar() {
-  const setSidebarOpen = useEditorStore((state) => state.setSidebarOpen);
+  const setSidebarOpen = useEditorStore((state) => state.setSidebarOpen)
 
   return (
     // 属性含义：
@@ -17,18 +17,13 @@ export default function Sidebar() {
           Explorer
         </span>
         {/* 关闭按钮触发全局状态更新，使外层侧边栏整体卸载。 */}
-        <button
-          onClick={() => setSidebarOpen(false)}
-          className="hover:text-white cursor-pointer"
-        >
+        <button onClick={() => setSidebarOpen(false)} className="hover:text-white cursor-pointer">
           <X size={14} />
         </button>
       </div>
       <div className="flex-1 overflow-y-auto p-4">
-        <p className="text-gray-500 italic text-sm">
-          Day 1: File Tree Will Be Here
-        </p>
+        <p className="text-gray-500 italic text-sm">Day 1: File Tree Will Be Here</p>
       </div>
     </div>
-  );
+  )
 }

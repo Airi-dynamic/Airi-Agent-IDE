@@ -1,4 +1,4 @@
-import Editor from "@monaco-editor/react";
+import Editor from '@monaco-editor/react'
 
 const INITIAL_CODE = ` // Airi-Agent-IDE 的 Monaco 编辑器组件示例代码
 function greet(name: string): string {
@@ -6,7 +6,7 @@ function greet(name: string): string {
 }
 
 console.log(greet('Day2'))
-`;
+`
 
 export default function MonacoWrapper() {
   return (
@@ -19,9 +19,9 @@ export default function MonacoWrapper() {
         minimap: { enabled: false },
         fontSize: 14,
         automaticLayout: true,
-        wordWrap: "on",
+        wordWrap: 'on',
         scrollBeyondLastLine: false,
       }}
     />
-  );
+  )
 }
