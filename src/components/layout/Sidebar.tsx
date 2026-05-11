@@ -1,5 +1,6 @@
 import { useEditorStore } from '../../stores/editor.store'
 import { FolderTree, X } from 'lucide-react'
+import FileExplorer from '../file-explorer/FileExplorer'
 
 export default function Sidebar() {
   const setSidebarOpen = useEditorStore((state) => state.setSidebarOpen)
@@ -12,6 +13,7 @@ export default function Sidebar() {
     // 4. flex flex-col: 使用 Flexbox 布局，并将子元素垂直排列。
     <div className="h-full bg-surface border-r border-border flex flex-col">
       <div className="px-4 py-2 flex items-center justify-between uppercase text-xs font-semibold text-gray-400 border-b border-border">
+        {/* 左侧边栏的顶部横幅 */}
         <span className="flex items-center">
           <FolderTree size={14} className="mr-2" />
           Explorer
@@ -21,8 +23,8 @@ export default function Sidebar() {
           <X size={14} />
         </button>
       </div>
-      <div className="flex-1 overflow-y-auto p-4">
-        <p className="text-gray-500 italic text-sm">Day 1: File Tree Will Be Here</p>
+      <div className="flex-1 min-h-0">
+        <FileExplorer />
       </div>
     </div>
   )

@@ -2,7 +2,9 @@ import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 const api = {
-  runCommand: async (command: string) => ipcRenderer.invoke('terminal:run-command', command),
+  runCommand: (command: string) => ipcRenderer.invoke('terminal:run-command', command),
+  getFileTree: () => ipcRenderer.invoke('file-system:get-tree'),
+  readFile: (filePath: string) => ipcRenderer.invoke('file-system:read-file', filePath),
 }
 
 if (process.contextIsolated) {

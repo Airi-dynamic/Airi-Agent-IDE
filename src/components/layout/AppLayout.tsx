@@ -32,7 +32,9 @@ export default function AppLayout() {
               <Panel defaultSize={20} minSize={15} maxSize={30}>
                 <Sidebar />
               </Panel>
-              <PanelResizeHandle className="w-1 bg-border hover:bg-blue-500 transition-colors" />
+              <PanelResizeHandle className="group w-[5px] flex items-stretch justify-center cursor-col-resize bg-transparent hover:bg-transparent">
+                <div className="w-px bg-border group-hover:bg-blue-500 transition-colors" />
+              </PanelResizeHandle>
             </>
           )}
           {/* 主工作区 */}
@@ -44,7 +46,9 @@ export default function AppLayout() {
                 </div>
               </Panel>
               {/* 工作区分割线 */}
-              <PanelResizeHandle className="h-1 bg-border hover:bg-blue-500 transition-colors" />
+              <PanelResizeHandle className="group h-[5px] flex flex-col items-stretch justify-center cursor-row-resize bg-transparent hover:bg-transparent">
+                <div className="h-px bg-border group-hover:bg-blue-500 transition-colors" />
+              </PanelResizeHandle>
               {/* 下方工作区 */}
               <Panel defaultSize={30}>
                 {/* 指定下方工作区布局的根元素 */}

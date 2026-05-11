@@ -10,8 +10,12 @@ import { create } from 'zustand'
 interface EditorState {
   // 1. 一个名为 isSidebarOpen 的纯数据
   isSidebarOpen: boolean
+  openFilePath: string | null
+  openFileContent: string
   // 2. 一个名为 setSidebarOpen 的方法
   setSidebarOpen: (open: boolean) => void
+  setOpenFile: (filePath: string, content: string) => void
+  setOpenFileContent: (content: string) => void
 }
 
 // ---------------------------------------------------------
@@ -28,10 +32,14 @@ export const useEditorStore = create<EditorState>((set) => ({
   // --- 仓库里的真实内容 ---
   // 初始数据：应用刚启动时，侧边栏默认是打开的
   isSidebarOpen: true,
+  openFilePath: null,
+  openFileContent: '',
 
   // 修改数据的动作函数 (Action)
   // 当组件里执行 setSidebarOpen(false) 时，这里的 open 参数就是 false
   setSidebarOpen: (open) => set({ isSidebarOpen: open }),
+  setOpenFile: (filePath, content) => set({ openFilePath: filePath, openFileContent: content }),
+  setOpenFileContent: (content) => set({ openFileContent: content }),
   // ▲ 这一行的物理执行逻辑：
   // 1. 接收外部传来的新值 (open)。
   // 2. 调用 Zustand 底层的 set 方法。
